@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /recipes
   # GET /recipes.json
@@ -59,6 +59,15 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def toggle_status
+    if @recipe.published?
+      @recipe.draft!
+    else
+      @recipe.published!
+    end
+    redirect_to recipes_path
   end
 
   private
