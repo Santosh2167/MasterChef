@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ingredients
   resources :recipes do
     member do
       post "toggle_status", to: "recipes#toggle_status"

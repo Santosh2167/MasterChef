@@ -14,3 +14,12 @@
     )
 end
 puts "done 20 receipies"
+
+40.times do
+    Ingredient.create(
+        name: Faker::Food.ingredient,
+        quantity: rand(20)
+    )
+end
+
+puts "Created 40 ingredients"
