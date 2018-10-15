@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+20.times do |i|
+    Recipe.create(
+        name: Faker::Food.dish,
+        cooking_time: rand(120),
+        status: 0
+    )
+end
+puts "done 20 receipies"
